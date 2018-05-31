@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 
-import './divider.css';
-
+/**
+ * Divider line (like <hr>)
+ * 
+ * Will output <div class="divider__line"></div>
+ */
 export default class Divider extends Component {
   render() {
     return (
-        <div className="divider_line"></div>
+        <div className="divider__line"></div>
     )
   }
 }

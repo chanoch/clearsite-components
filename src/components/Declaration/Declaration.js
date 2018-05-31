@@ -1,12 +1,29 @@
 import React from 'react';
 
-import './declaration.css';
-
 /**
- * Title and lead text in the middle
+ * A block containing a title and text
  * 
- * @argument heading - declaration title
- * @argument text - declaration text
+ * Styles:
+ *   As defined below plus it is assumed that 'block' is defined at global level
+ * 
+ * The resultant component will output:
+ * 
+ * <div class="block">
+ *  <div class="declaration__container">
+ *    <h2>{title}</h2>
+ *    <p class="declaration__text">{text}</p>
+ *    <div>
+ *    if(bg) {
+ *      <div class="declaration__bg_highlight"/>
+ *    } else {
+ *      <div class="declaration__bg_standard"/>
+ *    }
+ *  </div>
+ * </div>
+ * 
+ * @prop {string} title - the block heading
+ * @prop {string} text - a paragraph of text
+ * @prop {boolean} bg - whether to have a background color
  */
 export default class Declaration extends React.PureComponent {
     constructor(props) {
@@ -17,14 +34,14 @@ export default class Declaration extends React.PureComponent {
         const {title, text, bg} = this.props;
         return (
             <div className="block">            
-                <div className="container center">
+                <div className="declaration__container">
                     <h2>{title}</h2>
-                    <p className="lead">{text}</p>
+                    <p className="declaration__text">{text}</p>
                 </div>
                 {bg && 
-                    <div className="bg bg-color-neutral opacity-40"></div>
+                    <div className="declaration__bg_highlight"></div>
                 }{!bg && 
-                    <div className="bg"></div>
+                    <div className="declaration__bg_standard"></div>
                 }
             </div>
         )
