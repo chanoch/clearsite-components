@@ -1,4 +1,3 @@
-import CallToAction from './components/CallToAction/CallToAction';
 import Declaration from './components/Declaration/Declaration';
 import Divider from './components/Divider/Divider';
 import Footer from './components/Footer/Footer';
@@ -12,7 +11,6 @@ import Signature from './components/Signature/Signature';
 import Testimonials from './components/Testimonials/Testimonials';
 
 var Ccc = {
-    CallToAction,
     Declaration,
     Divider,
     Footer,

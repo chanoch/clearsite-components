@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 
+/**
+ * Not ready to use
+ */
 class Comment extends Component {
     render () {
         return (
             <ul class="comments__list">
                 <li class="comment">
                     <div class="comment__avatar">
-                        <img src="assets/img/comment_img_4.jpg" class="img-fluid" alt="..." />
+                        <img src="assets/img/comment_img.jpg" class="img-fluid" alt="..." />
                     </div>
                     <div class="comment__content">
                         <h5 class="comment__user">

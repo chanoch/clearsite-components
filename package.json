@@ -1,8 +1,8 @@
 {
-  "name": "@chanoch/chanoch-com-components",
-  "version": "0.2.2",
-  "description": "React components for chanoch.com",
-  "main": "dist/chanoch-com-components.min.js",
+  "name": "@chanoch/clearsite-components",
+  "version": "0.0.1",
+  "description": "Generic React site components",
+  "main": "dist/clearsite-components.min.js",
   "scripts": {
     "build": "webpack -p",
     "dev": "webpack --watch",
@@ -10,30 +10,32 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chanoch/chanoch-com-components.git"
+    "url": "git+https://github.com/chanoch/clearsite-components.git"
   },
   "keywords": [
     "react",
     "components",
-    "chanoch.com"
+    "clearsite"
   ],
   "author": "Chanoch <chanoch@clearbrook.it> (https://clearbrook.it)",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/chanoch/chanoch-com-components/issues"
+    "url": "https://github.com/chanoch/clearsite-components/issues"
   },
-  "homepage": "https://github.com/chanoch/chanoch-com-components#readme",
+  "homepage": "https://github.com/chanoch/clearsite-components#readme",
   "files": [
-    "dist/chanoch-com-components.min.js",
-    "dist/chanoch-com-components.min.js.map",
+    "dist/clearsite-components.min.js",
+    "dist/clearsite-components.min.js.map",
     "README.md"
   ],
   "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "moment": "^2.22.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-moment": "^0.7.0"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-es2015-destructuring": "^6.23.0",
     "babel-plugin-transform-es2015-parameters": "^6.24.1",
