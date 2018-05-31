@@ -15,7 +15,7 @@
   "keywords": [
     "react",
     "components",
-    "chanoch.com"
+    "clearsite"
   ],
   "author": "Chanoch <chanoch@clearbrook.it> (https://clearbrook.it)",
   "license": "UNLICENSED",
@@ -29,11 +29,13 @@
     "README.md"
   ],
   "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "moment": "^2.22.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-moment": "^0.7.0"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-es2015-destructuring": "^6.23.0",
     "babel-plugin-transform-es2015-parameters": "^6.24.1",

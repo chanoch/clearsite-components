@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 const path = require('path');
 
-var libraryName = 'chanoch-com-components';
+var libraryName = 'clearsite-components';
 
 const isProd = process.env.NODE_ENV === 'production' 
         || process.argv.slice(-1)[0] == '-p'
