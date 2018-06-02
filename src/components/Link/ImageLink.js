@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * Renders an image with a surrounding hyperlink
@@ -17,17 +18,19 @@ import React from 'react';
         <img src={src} alt={altText} />
     </a>
  */
-export default class ImageLink extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        const {link, linkTitle, src, altText} = this.props;
-        return (
-            <a href={link} title={linkTitle}>
-                <img src={src} alt={altText} />
-            </a>
-        )
-    }
+const ImageLink = ({link, linkTitle, src, altText}) => {
+    return (
+        <a href={link} title={linkTitle}>
+            <img src={src} alt={altText} />
+        </a>
+    )
 }
+
+ImageLink.propTypes = {
+    link: PropTypes.string.isRequired,
+    linkTitle: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired,
+    altText: PropTypes.string.isRequired
+}
+
+export default ImageLink;

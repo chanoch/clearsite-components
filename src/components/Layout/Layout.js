@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
@@ -13,33 +14,37 @@ import Divider from '../Divider/Divider';
  * It takes a config which contains a site name {config.title} and website {config.strapline} 
  * plus a list of {config.menuItems} and the currently {active} menu item.
  */
-export default class Layout extends React.Component {
-    constructor(props) {
-        super(props);
-    } 
- 
-    render() {
-        const { active, config } =  this.props;
-        return (
-            <div>
-                <Header title={config.title} 
-                    strapline={config.strapline} />
+const Layout = ({ active, config }) => {
+    return (
+        <div>
+            <Header title={config.title} 
+                strapline={config.strapline} />
 
-                <Divider />
-                <Navigation active={active} menuItems={config.menuItems}/>
-                <Divider />
+            <Divider />
+            <Navigation active={active} menuItems={config.menuItems}/>
+            <Divider />
 
-                <section className="section">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-12">
-                                {this.props.children}
-                            </div>
+            <section className="section">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            {this.props.children}
                         </div>
                     </div>
-                </section>
-
-            </div>
-        )
-    }
+                </div>
+            </section>
+        </div>
+    )
 }
+
+Layout.propTypes = {
+    active: PropTypes.string,
+    config: PropTypes.shape({
+        title: Proptypes.string.isRequired,
+        strapline: PropTypes.string.isRequired,
+        menuItems: PropTypes.array,
+    })
+}
+
+export default Layout;
+

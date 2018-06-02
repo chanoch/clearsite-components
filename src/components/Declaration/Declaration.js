@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * A block containing a title and text
@@ -25,25 +26,26 @@ import React from 'react';
  * @prop {string} text - a paragraph of text
  * @prop {boolean} bg - whether to have a background color
  */
-export default class Declaration extends React.PureComponent {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        const {title, text, bg} = this.props;
-        return (
-            <div className="block">            
-                <div className="declaration__container">
-                    <h2>{title}</h2>
-                    <p className="declaration__text">{text}</p>
-                </div>
-                {bg && 
-                    <div className="declaration__bg_highlight"></div>
-                }{!bg && 
-                    <div className="declaration__bg_standard"></div>
-                }
+const Declaration = ({title, text, bg}) => {
+    return (
+        <div className="block">            
+            <div className="declaration__container">
+                <h2>{title}</h2>
+                <p className="declaration__text">{text}</p>
             </div>
-        )
-    }
+            {bg && 
+                <div className="declaration__bg_highlight"></div>
+            }{!bg && 
+                <div className="declaration__bg_standard"></div>
+            }
+        </div>
+    )
 }
+
+Declaration.propTypes = {
+    title: PropTypes.string.isRequired,
+    text: PropTypes.string,
+    bg: PropTypes.bool
+}
+
+export default Declaration;

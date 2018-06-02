@@ -1,15 +1,13 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types';
 
-export default class PhoneLink extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        const {number} = this.props;
-        const telLink = "tel:"+number;
-        return (
-            <a href={telLink}>{number}</a>
-        )
-    }
+const PhoneLink = ({number}) => {
+    const telLink = "tel:"+number;
+    return <a href={telLink}>{number}</a>
 }
+
+PhoneLink.propTypes = {
+        number: PropTypes.string.isRequired,
+}
+
+export default PhoneLink;

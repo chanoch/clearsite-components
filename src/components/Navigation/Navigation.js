@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types';
 
 /** 
  * Create a list of menu items from the menuItems prop. 
@@ -13,19 +14,32 @@ import React, { PureComponent } from 'react'
         <a class="navigation__link" href={item.link}>{item.linkText}</a>
     </nav>
  */
-class Navigation extends PureComponent {
-    render () {
-        const {active, menuItems} = this.props;
-        return (
-            <nav className="navigation__nav">
-                {menuItems.map((item) => {
-                    var classes = "navigation__link";
-                    classes += (item.text === active?" navigation__active":"")
-                    return <a key={item.key} className={classes} href={item.link}>{item.linkText}</a>
-                })}
-            </nav>
-        )
-    }
+
+const Navigation = ({active: menuItems}) => {
+    return (
+        <nav className="navigation__nav">
+            {menuItems.map((item) => {
+                var classes = "navigation__link";
+                classes += (item.text === active?" navigation__active":"")
+                return <NavItem key={item.key} classes={classes} link={item.link} linkText={item.linkText} />
+            })}
+        </nav>
+
+    )
 }
 
-export default Navigation
+Navigation.propTypes = {
+    menuItems: PropTypes.arrayOf({item: PropTypes.string}),
+}
+
+export default Navigation;
+
+const NavItem = ({classes, link, linkText}) => {
+    return <a className={classes} href={item.link}>{item.linkText}</a>
+}
+
+NavItem.propTypes = {
+        classes: PropTypes.string, 
+        link: PropTypes.string.isRequired, 
+        linkText: PropTypes.string.isRequired,
+}

@@ -1,10 +1,10 @@
 {
   "name": "@chanoch/clearsite-components",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Clearsite generic React components",
   "main": "dist/clearsite-components.min.js",
   "scripts": {
-    "build": "webpack -p",
+    "prod": "webpack -p",
     "dev": "webpack --watch",
     "test": "test"
   },
@@ -18,18 +18,11 @@
     "clearsite"
   ],
   "author": "Chanoch <chanoch@clearbrook.it> (https://clearbrook.it)",
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/chanoch/clearsite-components/issues"
   },
   "homepage": "https://github.com/chanoch/clearsite-components#readme",
-  "files": [
-    "dist/clearsite-components.js",
-    "dist/clearsite-components.js.map",
-    "dist/clearsite-components.min.js",
-    "dist/clearsite-components.min.js.map",
-    "README.md"
-  ],
   "dependencies": {
     "moment": "^2.22.1",
     "react": "^16.4.0",
@@ -46,9 +39,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-es2017": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "css-loader": "^0.28.9",
     "path": "^0.12.7",
-    "style-loader": "^0.20.1",
     "webpack": "3.11.0"
   }
 }
