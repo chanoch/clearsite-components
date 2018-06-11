@@ -238,58 +238,6 @@ module.exports = ReactPropTypesSecret;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Header(_ref) {
-    var title = _ref.title,
-        strapline = _ref.strapline;
-
-    return _react2.default.createElement(
-        'header',
-        { className: 'header__header' },
-        _react2.default.createElement(
-            'div',
-            { className: 'container' },
-            _react2.default.createElement(
-                'span',
-                { className: 'header__strapline order-2 order-md-1' },
-                strapline
-            ),
-            _react2.default.createElement(
-                'a',
-                { href: '/', className: 'header__title mr-0 order-1 order-md-2' },
-                title
-            )
-        )
-    );
-}
-
-Header.propTypes = {
-    title: _propTypes2.default.string.isRequired,
-    strapline: _propTypes2.default.string
-};
-
-exports.default = Header;
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -354,6 +302,58 @@ if (undefined !== 'production') {
 module.exports = warning;
 
 /***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Header(_ref) {
+    var title = _ref.title,
+        strapline = _ref.strapline;
+
+    return _react2.default.createElement(
+        'header',
+        { className: 'header__header' },
+        _react2.default.createElement(
+            'div',
+            { className: 'container' },
+            _react2.default.createElement(
+                'span',
+                { className: 'header__strapline order-2 order-md-1' },
+                strapline
+            ),
+            _react2.default.createElement(
+                'a',
+                { href: '/', className: 'header__title mr-0 order-1 order-md-2' },
+                title
+            )
+        )
+    );
+}
+
+Header.propTypes = {
+    title: _propTypes2.default.string.isRequired,
+    strapline: _propTypes2.default.string
+};
+
+exports.default = Header;
+
+/***/ }),
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -390,13 +390,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Navigation = function Navigation(_ref) {
     var active = _ref.active,
-        menuItems = _ref.menuItems;
+        _ref$menuItems = _ref.menuItems,
+        menuItems = _ref$menuItems === undefined ? [] : _ref$menuItems;
 
     return _react2.default.createElement(
         'nav',
         { className: 'navigation__nav' },
         menuItems.map(function (item) {
-            console.log(item);
             var classes = "navigation__link";
             classes += item.key === active ? " navigation__active" : "";
             return _react2.default.createElement(NavItem, { key: item.key, classes: classes, link: item.link, linkText: item.linkText });
@@ -405,7 +405,11 @@ var Navigation = function Navigation(_ref) {
 };
 
 Navigation.propTypes = {
-    menuItems: _propTypes2.default.arrayOf({ item: _propTypes2.default.string })
+    menuItems: _propTypes2.default.arrayOf(_propTypes2.default.shape({
+        key: _propTypes2.default.string.isRequired,
+        link: _propTypes2.default.string.isRequired,
+        linkText: _propTypes2.default.string.isRequired
+    }))
 };
 
 exports.default = Navigation;
@@ -470,7 +474,7 @@ var _Declaration = __webpack_require__(15);
 
 var _Declaration2 = _interopRequireDefault(_Declaration);
 
-var _Header = __webpack_require__(5);
+var _Header = __webpack_require__(6);
 
 var _Header2 = _interopRequireDefault(_Header);
 
@@ -526,7 +530,11 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Header = __webpack_require__(5);
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Header = __webpack_require__(6);
 
 var _Header2 = _interopRequireDefault(_Header);
 
@@ -582,6 +590,15 @@ var DefaultLayout = function DefaultLayout(_ref) {
     );
 };
 
+DefaultLayout.propTypes = {
+    config: _propTypes2.default.shape({
+        active: _propTypes2.default.string,
+        title: _propTypes2.default.string.isRequired,
+        strapline: _propTypes2.default.string,
+        menuItems: _propTypes2.default.array
+    })
+};
+
 exports.default = DefaultLayout;
 
 /***/ }),
@@ -600,7 +617,7 @@ exports.default = DefaultLayout;
 
 var emptyFunction = __webpack_require__(2);
 var invariant = __webpack_require__(3);
-var warning = __webpack_require__(6);
+var warning = __webpack_require__(5);
 var assign = __webpack_require__(12);
 
 var ReactPropTypesSecret = __webpack_require__(4);
@@ -1246,7 +1263,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 if (undefined !== 'production') {
   var invariant = __webpack_require__(3);
-  var warning = __webpack_require__(6);
+  var warning = __webpack_require__(5);
   var ReactPropTypesSecret = __webpack_require__(4);
   var loggedTypeFailures = {};
 }

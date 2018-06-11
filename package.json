@@ -6,6 +6,7 @@
   "scripts": {
     "prod": "webpack -p",
     "dev": "webpack --watch",
+    "prepare": "webpack -p",
     "test": "jest --verbose"
   },
   "repository": {
