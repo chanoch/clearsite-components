@@ -1,6 +1,6 @@
 {
   "name": "@chanoch/clearsite-components",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Clearsite generic React components",
   "main": "dist/clearsite-components.js",
   "scripts": {
