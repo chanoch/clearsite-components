@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import Header from '../Header/Header'
 import Navigation from '../Navigation/Navigation'
@@ -34,6 +35,15 @@ const DefaultLayout = ({active, config, children}) => {
             </section>
         </div>
     )
+}
+
+DefaultLayout.propTypes = {
+    config: PropTypes.shape({
+        active: PropTypes.string,
+        title: PropTypes.string.isRequired,
+        strapline: PropTypes.string,
+        menuItems: PropTypes.array
+    })
 }
 
 export default DefaultLayout

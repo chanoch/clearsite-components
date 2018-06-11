@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 /** 
@@ -15,11 +15,10 @@ import PropTypes from 'prop-types'
     </nav>
  */
 
-const Navigation = ({active, menuItems}) => {
+const Navigation = ({active, menuItems=[]}) => {
     return (
         <nav className="navigation__nav">
             {menuItems.map(item => {
-                console.log(item)
                 var classes = "navigation__link"
                 classes += (item.key === active?" navigation__active":"")
                 return <NavItem key={item.key} classes={classes} link={item.link} linkText={item.linkText} />
@@ -30,7 +29,13 @@ const Navigation = ({active, menuItems}) => {
 }
 
 Navigation.propTypes = {
-    menuItems: PropTypes.arrayOf({item: PropTypes.string}),
+    menuItems: PropTypes.arrayOf(
+        PropTypes.shape({
+            key: PropTypes.string.isRequired,
+            link: PropTypes.string.isRequired,
+            linkText: PropTypes.string.isRequired
+        })
+    ),
 }
 
 export default Navigation
