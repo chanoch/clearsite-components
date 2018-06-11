@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import PropTypes from 'prop-types';
 
 /**
@@ -47,5 +47,4 @@ Declaration.propTypes = {
     text: PropTypes.string,
     bg: PropTypes.bool
 }
-
-export default Declaration;
+export default Declaration

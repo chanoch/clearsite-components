@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import PropTypes from 'prop-types';
 
 /**
@@ -33,4 +33,4 @@ ImageLink.propTypes = {
     altText: PropTypes.string.isRequired
 }
 
-export default ImageLink;
+export default ImageLink

@@ -1,19 +1,26 @@
-import Declaration from './components/Declaration/Declaration';
-import Divider from './components/Divider/Divider';
-import Header from './components/Header/Header';
-import ImageLink from './components/Link/ImageLink';
-import Layout from './components/Layout/Layout';
-import Navigation from './components/Navigation/Navigation';
-import PhoneLink from './components/Link/PhoneLink';
+// page components
+import DefaultLayout from './components/Layout/DefaultLayout'
+
+// sections
+import Declaration from './components/Declaration/Declaration'
+import Header from './components/Header/Header'
+
+//components
+import Divider from './components/Divider/Divider'
+import ImageLink from './components/Link/ImageLink'
+import PhoneLink from './components/Link/PhoneLink'
+import Navigation from './components/Navigation/Navigation'
 
 var Csc = {
+    DefaultLayout,
+
     Declaration,
-    Divider,
     Header,
+
+    Divider,
     ImageLink,
-    Layout,
-    Navigation,
     PhoneLink,
+    Navigation,
 }
 
-module.exports = Csc;
+module.exports = Csc

@@ -1,9 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
 
-import Header from '../Header/Header';
-import Navigation from '../Navigation/Navigation';
-import Divider from '../Divider/Divider';
+import Header from '../Header/Header'
+import Navigation from '../Navigation/Navigation'
+import Divider from '../Divider/Divider'
 
 /**
  * Creates a general page layout with a header, a navigation section and 
@@ -14,11 +13,11 @@ import Divider from '../Divider/Divider';
  * It takes a config which contains a site name {config.title} and website {config.strapline} 
  * plus a list of {config.menuItems} and the currently {active} menu item.
  */
-const Layout = ({ active, config }) => {
+const DefaultLayout = ({active, config, children}) => {
     return (
         <div>
             <Header title={config.title} 
-                strapline={config.strapline} />
+                    strapline={config.strapline} />
 
             <Divider />
             <Navigation active={active} menuItems={config.menuItems}/>
@@ -28,7 +27,7 @@ const Layout = ({ active, config }) => {
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
-                            {this.props.children}
+                            {children}
                         </div>
                     </div>
                 </div>
@@ -37,14 +36,4 @@ const Layout = ({ active, config }) => {
     )
 }
 
-Layout.propTypes = {
-    active: PropTypes.string,
-    config: PropTypes.shape({
-        title: Proptypes.string.isRequired,
-        strapline: PropTypes.string.isRequired,
-        menuItems: PropTypes.array,
-    })
-}
-
-export default Layout;
-
+export default DefaultLayout

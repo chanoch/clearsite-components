@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 /** 
  * Create a list of menu items from the menuItems prop. 
@@ -15,12 +15,13 @@ import PropTypes from 'prop-types';
     </nav>
  */
 
-const Navigation = ({active: menuItems}) => {
+const Navigation = ({active, menuItems}) => {
     return (
         <nav className="navigation__nav">
-            {menuItems.map((item) => {
-                var classes = "navigation__link";
-                classes += (item.text === active?" navigation__active":"")
+            {menuItems.map(item => {
+                console.log(item)
+                var classes = "navigation__link"
+                classes += (item.key === active?" navigation__active":"")
                 return <NavItem key={item.key} classes={classes} link={item.link} linkText={item.linkText} />
             })}
         </nav>
@@ -32,12 +33,11 @@ Navigation.propTypes = {
     menuItems: PropTypes.arrayOf({item: PropTypes.string}),
 }
 
-export default Navigation;
+export default Navigation
 
 const NavItem = ({classes, link, linkText}) => {
-    return <a className={classes} href={item.link}>{item.linkText}</a>
+    return <a className={classes} href={link}>{linkText}</a>
 }
-
 NavItem.propTypes = {
         classes: PropTypes.string, 
         link: PropTypes.string.isRequired, 

@@ -2,7 +2,7 @@
   "name": "@chanoch/clearsite-components",
   "version": "0.0.5",
   "description": "Clearsite generic React components",
-  "main": "dist/clearsite-components.min.js",
+  "main": "dist/clearsite-components.js",
   "scripts": {
     "prod": "webpack -p",
     "dev": "webpack --watch",
@@ -24,9 +24,10 @@
   },
   "homepage": "https://github.com/chanoch/clearsite-components#readme",
   "dependencies": {
+    "prop-types": "^15.6.1",
     "moment": "^2.22.1",
     "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "react-dom": "^16.4.0"
     "react-moment": "^0.7.0"
   },
   "devDependencies": {

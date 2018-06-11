@@ -1,23 +1,23 @@
-var webpack = require('webpack');
-const path = require('path');
+var webpack = require('webpack')
+const path = require('path')
 
-var libraryName = 'clearsite-components';
+var libraryName = 'clearsite-components'
 
 const isProd = process.env.NODE_ENV === 'production' 
         || process.argv.slice(-1)[0] == '-p'
-        || process.argv.some(arg => arg.indexOf('webpack-dev-server') >= 0);
+        || process.argv.some(arg => arg.indexOf('webpack-dev-server') >= 0)
 
-const filename = `${libraryName}${isProd?'.min':''}.js`;
+const filename = `${libraryName}${isProd?'.min':''}.js`
 
 function getPlugins() {
-    const plugins = [];
+    const plugins = []
 
     // pass env to webpack
     plugins.push(new webpack.DefinePlugin({
         'process.env': {
             'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
         }
-    }));
+    }))
 
     if(isProd) {
         plugins.push(new webpack.optimize.UglifyJsPlugin({
@@ -25,9 +25,9 @@ function getPlugins() {
             uglifyOptions: {
                 mangle: false
             }
-        }));
+        }))
     }
-    return plugins;
+    return plugins
 }
 
 module.exports = {
@@ -44,7 +44,6 @@ module.exports = {
     },
     module: {
         rules: [
-            { test: /\.css$/, use: [ 'style-loader', 'css-loader' ] },
             { test: /\.js.?$/, loader: 'babel-loader', exclude: /node_modules/ },
         ],
     },
